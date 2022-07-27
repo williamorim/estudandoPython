@@ -1,0 +1,248 @@
+---
+title: "Estudando python"
+output: html_document
+date: '2022-07-27'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Python básico
+
+## Python como calculadora
+
+1. Calcule o número de ouro.
+
+```{python}
+(1 + (5 ** (1/2))) / 2
+```
+
+```{python}
+import math
+(1 + math.sqrt(5)) / 2
+```
+
+2. Multiplique a sua idade por 12 e salve o resultado em um objeto chamado `idade_em_meses`. Em seguida, multiplique esse objeto por 30 e salve o resultado em um objeto chamado `idade_em_dias`.
+
+```{python}
+idade_em_meses = 12 * 32
+idade_em_meses
+```
+
+```{python}
+idade_em_dias = idade_em_meses * 30
+```
+
+
+3. Guarde em um objeto chamado nome uma string contendo o seu nome completo.
+
+```{python}
+nome = "William Nilson de Amorim"
+```
+
+
+4. Guarde em um objeto chamado cidade o nome da cidade onde você mora. Em seguida, guarde em um objeto chamado estado o nome do estado onde você mora. Usando esses objetos, resolva os itens abaixo:
+
+a. Utilize a função `nchar()` para contar o número de caracteres em cada cada string.
+
+```{python}
+cidade = "São Paulo"
+estado = "SP"
+
+len(cidade)
+len(estado)
+```
+
+b. Junte as duas strings em uma única
+
+```{python}
+cidade + ", " + estado
+```
+
+5. Guarde em um objeto a sequência de números de 0 a 5 e resolva os itens abaixo.
+
+```{python}
+vetor = [0, 1, 2, 3, 4, 5]
+```
+
+```{python}
+vetor = list(range(0, 6))
+```
+
+
+```{python}
+import numpy
+
+vetor_np = numpy.array([0, 1, 2, 3, 4, 5])
+```
+
+
+a. Use subsetting para fazer o R devolver o primeiro número dessa sequência. Em seguida, faça o R devolver o último número da sequência.
+
+```{python}
+vetor[0]
+vetor_np[5]
+```
+
+b. Multiplique todos os valores do vetor por -1. Guarde o resultado em um novo objeto chamado vetor_negativo.
+
+```{python}
+vetor_negativo = []
+
+for valor in vetor:
+  vetor_negativo.append(valor * -1)
+  
+vetor_negativo
+```
+
+```{python}
+vetor_np * -1
+```
+
+
+```{python}
+list(map(lambda x: x * -1, vetor))
+```
+
+6. Crie um vetor com o nome de três frutas, guarde em um objeto chamado frutas e resolva os itens abaixo.
+
+```{python}
+frutas = ["banana", "maçã", "mamão"]
+frutas_np = numpy.array(frutas)
+```
+
+
+a. Utilize a função len() para verificar o tamanho do vetor.
+
+```{python}
+len(frutas)
+len(frutas_np)
+```
+
+b. Inspecione a saída de paste("eu gosto de", frutas) e responda se o tamanho do vetor mudou.
+
+```{python}
+gosto_frutas = []
+
+for fruta in frutas:
+  gosto_frutas.append("eu gosto de " + fruta)
+
+gosto_frutas
+```
+
+
+```{python}
+list(map(lambda x: "eu gosto de " + x, frutas))
+```
+
+7. O que é coerção? 
+
+```{python}
+[1, "a", True, False]
+```
+
+```{python}
+numpy.array([1, "a", True, False])
+```
+
+8. Some e calcule a média dos valores de 1 a 100.
+
+```{python}
+sum(range(1, 101))
+
+
+```
+
+```{python}
+vetor = range(1, 101)
+sum(vetor) / len(vetor)
+```
+
+```{python}
+import statistics
+
+statistics.mean(range(1, 101))
+```
+
+9.  O código abaixo vai guardar no objeto segredo um número inteiro entre 0 e 10. Sem olhar qual número foi guardado no objeto, resolva os itens a seguir:
+
+```{python}
+import random
+
+segredo = random.randint(0, 10)
+```
+
+a. Teste se o segredo é maior ou igual a 0.
+
+```{python}
+segredo >= 0
+```
+
+b. Teste se o segredo é menor ou igual a 10.
+
+```{python}
+segredo <= 10
+```
+
+c. Teste se o segredo é maior que 5.
+
+```{python}
+segredo > 5
+```
+
+d. Teste se o segredo é par.
+
+```{python}
+segredo % 2 == 0
+```
+
+e. Teste se segredo * 5 é maior que a sua idade.
+
+```{python}
+segredo * 5 > 32
+```
+
+f. Desafio. Escreva um teste para descobrir o valor do segredo. 
+
+```{python}
+segredo % 10
+```
+
+```{python}
+numeros = numpy.array(range(1, 11))
+numeros == segredo
+```
+
+10. Escreva um código em Python que devolva apenas os valores maiores ou iguais a 10 do vetor abaixo:
+
+```{python}
+vetor = numpy.array([4, 8, 15, 16, 23, 42])
+vetor[vetor > 10]
+```
+
+11. Escreva um código em R que devolva apenas os valores maiores ou iguais a 10 do vetor abaixo:
+
+```{python}
+numeros = numpy.array(range(-4, 3))
+```
+
+a. Escreva um código que devolva apenas valores positivos do vetor numeros.
+
+```{python}
+numeros[numeros > 0]
+```
+
+b. Escreva um código que devolta apenas os valores pares do vetor numeros.
+
+```{python}
+numeros[numeros % 2 == 0]
+```
+
+c. Filtre o vetor para que retorne apenas aqueles valores que, quando elevados a 2, são menores do que 4.
+
+```{python}
+numeros[numeros ** 2 < 4]
+```
+
